@@ -1,0 +1,14 @@
+#!/bin/bash
+
+cd /sources
+tar -xvf #expat
+cd #expat
+./configure --prefix=/usr    \
+            --disable-static \
+            --docdir=/usr/share/doc/expat-2.6.2
+make $MAKEFLAGS
+# make check
+make install
+install -v -m644 doc/*.{html,css} /usr/share/doc/expat-2.6.2
+cd ..
+rm -rv #expat
