@@ -1,11 +1,14 @@
 #!/bin/bash
 
+pkgname=gzip
+pkgver=1.13
+
 cd /sources
-tar -xvf gzip-1.13.tar.xz
-cd gzip-1.13
+tar -xvf $pkgname-$pkgver.tar.xz
+cd $pkgname-$pkgver
 ./configure --prefix=/usr
 make $MAKEFLAGS
 # make check
 make install
 cd ..
-rm -rv gzip-1.13
+rm -rv $pkgname-$pkgver

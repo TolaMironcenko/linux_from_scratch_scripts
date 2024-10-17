@@ -1,11 +1,14 @@
 #!/bin/bash
 
+pkgname=gperf
+pkgver=3.1
+
 cd /sources
-tar -xvf gperf-3.1.tar.gz
-cd gperf-3.1
-./configure --prefix=/usr --docdir=/usr/share/doc/gperf-3.1
+tar -xvf $pkgname-$pkgver.tar.gz
+cd $pkgname-$pkgver
+./configure --prefix=/usr --docdir=/usr/share/doc/$pkgname-$pkgver
 make $MAKEFLAGS
 # make -j1 check
 make install
 cd ..
-rm -rv gperf-3.1
+rm -rv $pkgname-$pkgver

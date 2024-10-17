@@ -1,11 +1,14 @@
 #!/bin/bash
 
+pkgname=diffutils
+pkgver=3.10
+
 cd /sources
-tar -xvf diffutils-3.10.tar.xz
-cd diffutils-3.10
+tar -xvf $pkgname-$pkgver.tar.xz
+cd $pkgname-$pkgver
 ./configure --prefix=/usr
 make $MAKEFLAGS
 # make check
 make install
 cd ..
-rm -rv diffutils-3.10
+rm -rv $pkgname-$pkgver

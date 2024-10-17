@@ -1,16 +1,19 @@
 #!/bin/bash
 
+pkgname=mpfr
+pkgver=4.2.1
+
 cd /sources
-tar -xvf mpfr-4.2.1.tar.xz
-cd mpfr-4.2.1
+tar -xvf $pkgname-$pkgver.tar.xz
+cd $pkgname-$pkgver
 ./configure --prefix=/usr        \
             --disable-static     \
             --enable-thread-safe \
-            --docdir=/usr/share/doc/mpfr-4.2.1
+            --docdir=/usr/share/doc/$pkgname-$pkgver
 make $MAKEFLAGS
 make html $MAKEFLAGS
 # make check
 make install
 make install-html
 cd ..
-rm -rv mpfr-4.2.1
+rm -rv $pkgname-$pkgver

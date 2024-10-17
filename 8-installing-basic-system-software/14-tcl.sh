@@ -1,8 +1,11 @@
 #!/bin/bash
 
+pkgname=tcl
+pkgver=8.6.14
+
 cd /sources
-tar -xvf tcl8.6.14-src.tar.gz
-cd tcl8.6.14
+tar -xvf $pkgname$pkgver-src.tar.gz
+cd $pkgname$pkgver
 SRCDIR=$(pwd)
 cd unix
 ./configure --prefix=/usr           \
@@ -33,7 +36,7 @@ make install-private-headers
 ln -sfv tclsh8.6 /usr/bin/tclsh
 mv /usr/share/man/man3/{Thread,Tcl_Thread}.3
 cd ..
-tar -xf ../tcl8.6.14-html.tar.gz --strip-components=1
+tar -xf ../$pkgname$pkgver-html.tar.gz --strip-components=1
 mkdir -v -p /usr/share/doc/tcl-8.6.14
 cp -v -r  ./html/* /usr/share/doc/tcl-8.6.14
-rm -rv html tcl8.6.14
+rm -rv html $pkgname$pkgver

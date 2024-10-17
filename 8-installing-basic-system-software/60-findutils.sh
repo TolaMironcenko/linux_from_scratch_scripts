@@ -1,12 +1,15 @@
 #!/bin/bash
 
+pkgname=findutils
+pkgver=4.10.0
+
 cd /sources
-tar -xvf findutils-4.10.0.tar.xz
-cd findutils-4.10.0
+tar -xvf $pkgname-$pkgver.tar.xz
+cd $pkgname-$pkgver
 ./configure --prefix=/usr --localstatedir=/var/lib/locate
 make $MAKEFLAGS
 # chown -R tester .
 # su tester -c "PATH=$PATH make check"
 make install
 cd ..
-rm -rv findutils-4.10.0
+rm -rv $pkgname-$pkgver

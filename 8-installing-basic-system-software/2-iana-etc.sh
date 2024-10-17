@@ -1,8 +1,11 @@
 #!/bin/bash
 
+pkgname=iana-etc
+pkgver=20240806
+
 cd /sources
-tar -xvf iana-etc-20240806.tar.gz
-cd iana-etc-20240806
+tar -xvf $pkgname-$pkgver.tar.gz
+cd $pkgname-$pkgver
 cp -v services protocols /etc
 cd ..
-rm -rv iana-etc-20240806
+rm -rv $pkgname-$pkgver

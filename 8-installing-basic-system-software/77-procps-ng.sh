@@ -1,10 +1,13 @@
 #!/bin/bash
 
+pkgname=procps-ng
+pkgver=4.0.4
+
 cd /sources
-tar -xvf procps-ng-4.0.4.tar.xz
-cd procps-ng-4.0.4
+tar -xvf $pkgname-$pkgver.tar.xz
+cd $pkgname-$pkgver
 ./configure --prefix=/usr                           \
-            --docdir=/usr/share/doc/procps-ng-4.0.4 \
+            --docdir=/usr/share/doc/$pkgname-$pkgver \
             --disable-static                        \
             --disable-kill                          \
             --with-systemd
@@ -13,4 +16,4 @@ make src_w_LDADD='$(LDADD) -lsystemd' $MAKEFLAGS
 # su tester -c "PATH=$PATH make check"
 make install
 cd ..
-rm -rv procps-ng-4.0.4
+rm -rv $pkgname-$pkgver

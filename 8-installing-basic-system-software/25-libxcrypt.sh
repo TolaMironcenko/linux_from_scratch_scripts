@@ -1,13 +1,16 @@
 #!/bin/bash
 
+pkgname=libxcrypt
+pkgver=4.4.36
+
 if [ "$1" = "" ]; then
     printf "Please use $0 lfs or $0 lsb\n"
     exit 1
 fi
 
 cd /sources
-tar -xvf libxcrypt-4.4.36.tar.xz
-cd libxcrypt-4.4.36
+tar -xvf $pkgname-$pkgver.tar.xz
+cd $pkgname-$pkgver
 ./configure --prefix=/usr                \
             --enable-hashes=strong,glibc \
             --enable-obsolete-api=no     \
@@ -27,4 +30,4 @@ if [ "$1" = "lsb" ]; then
     cp -av --remove-destination .libs/libcrypt.so.1* /usr/lib
 fi
 cd ..
-rm -rv libxcrypt-4.4.36
+rm -rv $pkgname-$pkgver

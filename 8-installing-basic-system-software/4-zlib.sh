@@ -1,12 +1,15 @@
 #!/bin/bash
 
+pkgname=zlib
+pkgver=1.3.1
+
 cd /sources
-tar -xvf zlib-1.3.1.tar.gz
-cd zlib-1.3.1
+tar -xvf $pkgname-$pkgver.tar.gz
+cd $pkgname-$pkgver
 ./configure --prefix=/usr
 make $MAKEFLAGS
 #make check
 make install
 rm -fv /usr/lib/libz.a
 cd ..
-rm -rv zlib-1.3.1
+rm -rv $pkgname-$pkgver

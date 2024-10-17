@@ -1,13 +1,16 @@
 #!/bin/bash
 
+pkgname=bash
+pkgver=5.2.32
+
 cd /sources
-tar -xvf bash-5.2.32.tar.gz
-cd bash-5.2.32
+tar -xvf $pkgname-$pkgver.tar.gz
+cd $pkgname-$pkgver
 ./configure --prefix=/usr             \
             --without-bash-malloc     \
             --with-installed-readline \
             bash_cv_strtold_broken=no \
-            --docdir=/usr/share/doc/bash-5.2.32
+            --docdir=/usr/share/doc/$pkgname-$pkgver
 make $MAKEFLAGS
 # chown -R tester .
 # su -s /usr/bin/expect tester << "EOF"
@@ -19,5 +22,5 @@ make $MAKEFLAGS
 # EOF
 make install
 cd ..
-rm -rv bash-5.2.32
+rm -rv $pkgname-$pkgver
 exec /usr/bin/bash --login

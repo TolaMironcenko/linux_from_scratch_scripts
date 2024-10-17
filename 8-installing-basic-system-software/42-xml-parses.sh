@@ -1,11 +1,14 @@
 #!/bin/bash
 
+pkgname=XML-Parser
+pkgver=2.47
+
 cd /sources
-tar -xvf XML-Parser-2.47.tar.gz
-cd XML-Parser-2.47
+tar -xvf $pkgname-$pkgver.tar.gz
+cd $pkgname-$pkgver
 perl Makefile.PL
 make $MAKEFLAGS
 # make test
 make install
 cd ..
-rm -rv XML-Parser-2.47
+rm -rv $pkgname-$pkgver

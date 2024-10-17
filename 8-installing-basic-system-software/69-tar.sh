@@ -1,13 +1,16 @@
 #!/bin/bash
 
+pkgname=tar
+pkgver=1.35
+
 cd /sources
-tar -xvf tar-1.35.tar.xz
-cd tar-1.35
+tar -xvf $pkgname-$pkgver.tar.xz
+cd $pkgname-$pkgver
 FORCE_UNSAFE_CONFIGURE=1  \
 ./configure --prefix=/usr
 make $MAKEFLAGS
 # make check
 make install
-make -C doc install-html docdir=/usr/share/doc/tar-1.35
+make -C doc install-html docdir=/usr/share/doc/$pkgname-$pkgver
 cd ..
-rm -rv tar-1.35
+rm -rv $pkgname-$pkgver

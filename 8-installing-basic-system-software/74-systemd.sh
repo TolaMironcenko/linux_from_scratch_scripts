@@ -1,8 +1,11 @@
 #!/bin/bash
 
+pkgname=systemd
+pkgver=256.4
+
 cd /sources
-tar -xvf systemd-256.4.tar.gz
-cd systemd-256.4
+tar -xvf $pkgname-$pkgver.tar.gz
+cd $pkgname-$pkgver
 sed -i -e 's/GROUP="render"/GROUP="video"/' \
        -e 's/GROUP="sgx", //' rules.d/50-udev-default.rules.in
 mkdir -p build
@@ -26,7 +29,7 @@ meson setup ..                \
       -D nobody-group=nogroup \
       -D sysupdate=disabled   \
       -D ukify=disabled       \
-      -D docdir=/usr/share/doc/systemd-256.4
+      -D docdir=/usr/share/doc/$pkgname-$pkgver
 ninja
 # echo 'NAME="Linux From Scratch"' > /etc/os-release
 # ninja test
@@ -37,4 +40,4 @@ tar -xf ../../systemd-man-pages-256.4.tar.xz \
 systemd-machine-id-setup
 systemctl preset-all
 cd ../../
-rm -rv systemd-256.4
+rm -rv $pkgname-$pkgver

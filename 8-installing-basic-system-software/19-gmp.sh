@@ -1,12 +1,15 @@
 #!/bin/bash
 
+pkgname=gmp
+pkgver=6.3.0
+
 cd /sources
-tar -xvf gmp-6.3.0.tar.xz
-cd gmp-6.3.0
+tar -xvf $pkgname-$pkgver.tar.xz
+cd $pkgname-$pkgver
 ./configure --prefix=/usr    \
             --enable-cxx     \
             --disable-static \
-            --docdir=/usr/share/doc/gmp-6.3.0
+            --docdir=/usr/share/doc/$pkgname-$pkgver
 make $MAKEFLAGS
 make html $MAKEFLAGS
 # make check 2>&1 | tee gmp-check-log
@@ -14,4 +17,4 @@ make html $MAKEFLAGS
 make install
 make install-html
 cd ..
-rm -rv gmp-6.3.0
+rm -rv $pkgname-$pkgver

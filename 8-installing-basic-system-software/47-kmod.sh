@@ -1,8 +1,11 @@
 #!/bin/bash
 
+pkgname=kmod
+pkgver=33
+
 cd /sources
-tar -xvf kmod-33.tar.xz
-cd kmod-33
+tar -xvf $pkgname-$pkgver.tar.xz
+cd $pkgname-$pkgver
 ./configure --prefix=/usr     \
             --sysconfdir=/etc \
             --with-openssl    \
@@ -18,4 +21,4 @@ for target in depmod insmod modinfo modprobe rmmod; do
   # rm -fv /usr/bin/$target
 done
 cd ..
-rm -rv kmod-33
+rm -rv $pkgname-$pkgver

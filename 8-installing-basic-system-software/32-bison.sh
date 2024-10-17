@@ -1,11 +1,14 @@
 #!/bin/bash
 
+pkgname=bison
+pkgver=3.8.2
+
 cd /sources
-tar -xvf bison-3.8.2.tar.xz
-cd bison-3.8.2
-./configure --prefix=/usr --docdir=/usr/share/doc/bison-3.8.2
+tar -xvf $pkgname-$pkgver.tar.xz
+cd $pkgname-$pkgver
+./configure --prefix=/usr --docdir=/usr/share/doc/$pkgname-$pkgver
 make $MAKEFLAGS
 # make check
 make install
 cd ..
-rm -rv bison-3.8.2
+rm -rv $pkgname-$pkgver

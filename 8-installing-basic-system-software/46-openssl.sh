@@ -1,8 +1,11 @@
 #!/bin/bash
 
+pkgname=openssl
+pkgver=3.3.1
+
 cd /sources
-tar -xvf openssl-3.3.1.tar.gz
-cd openssl-3.3.1
+tar -xvf $pkgname-$pkgver.tar.gz
+cd $pkgname-$pkgver
 ./config --prefix=/usr         \
          --openssldir=/etc/ssl \
          --libdir=lib          \
@@ -12,7 +15,7 @@ make $MAKEFLAGS
 # HARNESS_JOBS=$(nproc) make test
 sed -i '/INSTALL_LIBS/s/libcrypto.a libssl.a//' Makefile
 make MANSUFFIX=ssl install
-mv -v /usr/share/doc/openssl /usr/share/doc/openssl-3.3.1
-cp -vfr doc/* /usr/share/doc/openssl-3.3.1
+mv -v /usr/share/doc/openssl /usr/share/doc/$pkgname-$pkgver
+cp -vfr doc/* /usr/share/doc/$pkgname-$pkgver
 cd ..
-rm -rv openssl-3.3.1
+rm -rv $pkgname-$pkgver

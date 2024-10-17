@@ -1,10 +1,13 @@
 #!/bin/bash
 
+pkgname=man-db
+pkgver=2.12.1
+
 cd /sources
-tar -xvf man-db-2.12.1.tar.xz
-cd man-db-2.12.1
+tar -xvf $pkgname-$pkgver.tar.xz
+cd $pkgname-$pkgver
 ./configure --prefix=/usr                         \
-            --docdir=/usr/share/doc/man-db-2.12.1 \
+            --docdir=/usr/share/doc/$pkgname-$pkgver \
             --sysconfdir=/etc                     \
             --disable-setuid                      \
             --enable-cache-owner=bin              \
@@ -15,4 +18,4 @@ make $MAKEFLAGS
 # make check
 make install
 cd ..
-rm -rv man-db-2.12.1
+rm -rv $pkgname-$pkgver

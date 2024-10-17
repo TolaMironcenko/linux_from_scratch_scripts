@@ -1,8 +1,11 @@
 #!/bin/bash
 
+pkgname=vim
+pkgver=9.1.0660
+
 cd /sources
-tar -xvf vim-9.1.0660.tar.gz
-cd vim-9.1.0660
+tar -xvf $pkgname-$pkgver.tar.gz
+cd $pkgname-$pkgver
 echo '#define SYS_VIMRC_FILE "/etc/vimrc"' >> src/feature.h
 ./configure --prefix=/usr
 make $MAKEFLAGS
@@ -14,23 +17,45 @@ ln -sv vim /usr/bin/vi
 for L in  /usr/share/man/{,*/}man1/vim.1; do
     ln -sv vim.1 $(dirname $L)/vi.1
 done
-ln -sv ../vim/vim91/doc /usr/share/doc/vim-9.1.0660
+ln -sv ../vim/vim91/doc /usr/share/doc/$pkgname-$pkgver
 cat > /etc/vimrc << "EOF"
-" Begin /etc/vimrc
-
-" Ensure defaults are set before customizing settings, not after
-source $VIMRUNTIME/defaults.vim
-let skip_defaults_vim=1
 set number
-set nocompatible
-set backspace=2
-set mouse=
 syntax on
-if (&term == "xterm") || (&term == "putty")
-  set background=dark
-endif
+set expandtab
+set smarttab
+set tabstop=4
+set softtabstop=4
+set shiftwidth=4
+set foldcolumn=2
+set mouse=a
+set encoding=utf8
+"-------- colorcolumn ------------------
+set colorcolumn=110
+highlight ColorColumn ctermbg=darkgray
+"---------------------------------------
 
-" End /etc/vimrc
+"------------ tabs -----------------------
+nnoremap <C-p> :tabprevious<CR>
+nnoremap <C-n> :tabnext<CR>
+nnoremap <C-t> :tabnew<CR>
+inoremap <C-p> <Esc>:tabprevious<CR>i
+inoremap <C-n> <Esc>:tabnext<CR>i
+inoremap <C-t> <Esc>:tabnew<CR>
+nnoremap <C-d> :tabclose<CR>
+inoremap <C-d> <Esc>:tabclose<CR>
+"-----------------------------------------
+"----------------- term --------
+nnoremap <C-x> :term<CR>
+inoremap <C-x> <Esc>:term<CR>
+"-------------------------------
+nnoremap <C-s> :w<CR>
+inoremap <C-s> <Esc>:w<CR>
+nnoremap <C-q> :q<CR>
+inoremap <C-q> <Esc>:q<CR>
+"-------------------------------------
+nnoremap <C-u> :so%<CR>
+inoremap <C-u> <Esc>:so%<CR>
+"--------------------------------------------
 EOF
 cd ..
-rm -rv vim-9.1.0660
+rm -rv $pkgname-$pkgver

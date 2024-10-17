@@ -1,8 +1,11 @@
 #!/bin/bash
 
+pkgname=util-linux
+pkgver=2.40.2
+
 cd /sources
-tar -xvf util-linux-2.40.2.tar.xz
-cd util-linux-2.40.2
+tar -xvf $pkgname-$pkgver.tar.xz
+cd $pkgname-$pkgver
 ./configure --bindir=/usr/bin     \
             --libdir=/usr/lib     \
             --runstatedir=/run    \
@@ -18,11 +21,11 @@ cd util-linux-2.40.2
             --disable-static      \
             --without-python      \
             ADJTIME_PATH=/var/lib/hwclock/adjtime \
-            --docdir=/usr/share/doc/util-linux-2.40.2
+            --docdir=/usr/share/doc/$pkgname-$pkgver
 make $MAKEFLAGS
 # touch /etc/fstab
 # chown -R tester .
 # su tester -c "make -k check"
 make install
 cd ..
-rm -rv util-linux-2.40.2
+rm -rv $pkgname-$pkgver

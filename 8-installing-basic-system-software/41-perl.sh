@@ -1,8 +1,11 @@
 #!/bin/bash
 
+pkgname=perl
+pkgver=5.40.0
+
 cd /sources
-tar -xvf perl-5.40.0.tar.xz
-cd perl-5.40.0
+tar -xvf $pkgname-$pkgver.tar.xz
+cd $pkgname-$pkgver
 export BUILD_ZLIB=False
 export BUILD_BZIP2=0
 sh Configure -des                                          \
@@ -24,4 +27,4 @@ TEST_JOBS=$(nproc) make test_harness
 make install
 unset BUILD_ZLIB BUILD_BZIP2
 cd ..
-rm -rv perl-5.40.0
+rm -rv $pkgname-$pkgver

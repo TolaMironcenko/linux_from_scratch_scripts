@@ -1,11 +1,14 @@
 #!/bin/bash
 
+pkgname=m4
+pkgver=1.4.19
+
 cd /sources
-tar -xvf m4-1.4.19.tar.xz
-cd m4-1.4.19
+tar -xvf $pkgname-$pkgver.tar.xz
+cd $pkgname-$pkgver
 ./configure --prefix=/usr
 make $MAKEFLAGS
 # make check
 make install
 cd ..
-rm -rv m4-1.4.19
+rm -rv $pkgname-$pkgver

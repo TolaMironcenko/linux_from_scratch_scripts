@@ -1,11 +1,14 @@
 #!/bin/bash
 
+pkgname=autoconf
+pkgver=2.72
+
 cd /sources
-tar -xvf autoconf-2.72.tar.xz
-cd autoconf-2.72
+tar -xvf $pkgname-$pkgver.tar.xz
+cd $pkgname-$pkgver
 ./configure --prefix=/usr
 make $MAKEFLAGS
 # make check
 make install
 cd ..
-rm -rv autoconf-2.72
+rm -rv $pkgname-$pkgver

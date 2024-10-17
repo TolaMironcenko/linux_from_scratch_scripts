@@ -1,8 +1,11 @@
 #!/bin/bash
 
+pkgname=dbus
+pkgver=1.14.10
+
 cd /sources
-tar -xvf dbus-1.14.10.tar.xz
-cd dbus-1.14.10
+tar -xvf $pkgname-$pkgver.tar.xz
+cd $pkgname-$pkgver
 ./configure --prefix=/usr                        \
             --sysconfdir=/etc                    \
             --localstatedir=/var                 \
@@ -11,11 +14,11 @@ cd dbus-1.14.10
             --disable-static                     \
             --disable-doxygen-docs               \
             --disable-xml-docs                   \
-            --docdir=/usr/share/doc/dbus-1.14.10 \
+            --docdir=/usr/share/doc/$pkgname-$pkgver \
             --with-system-socket=/run/dbus/system_bus_socket
 make $MAKEFLAGS
 # make check
 make install
 ln -sfv /etc/machine-id /var/lib/dbus
 cd ..
-rm -rv dbus-1.14.10
+rm -rv $pkgname-$pkgver

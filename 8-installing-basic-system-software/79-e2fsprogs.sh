@@ -1,8 +1,11 @@
 #!/bin/bash
 
+pkgname=e2fsprogs
+pkgver=1.47.1
+
 cd /sources
-tar -xvf e2fsprogs-1.47.1.tar.gz
-cd e2fsprogs-1.47.1
+tar -xvf $pkgname-$pkgver.tar.gz
+cd $pkgname-$pkgver
 mkdir -v build
 cd       build
 ../configure --prefix=/usr           \
@@ -23,4 +26,4 @@ install -v -m644 doc/com_err.info /usr/share/info
 install-info --dir-file=/usr/share/info/dir /usr/share/info/com_err.info
 sed 's/metadata_csum_seed,//' -i /etc/mke2fs.conf
 cd ../../
-rm -rv e2fsprogs-1.47.1
+rm -rv $pkgname-$pkgver

@@ -1,8 +1,11 @@
 #!/bin/bash
 
+pkgname=texinfo
+pkgver=7.1
+
 cd /sources
-tar -xvf texinfo-7.1.tar.xz
-cd texinfo-7.1
+tar -xvf $pkgname-$pkgver.tar.xz
+cd $pkgname-$pkgver
 ./configure --prefix=/usr
 make $MAKEFLAGS
 # make check
@@ -15,4 +18,4 @@ pushd /usr/share/info
   done
 popd
 cd ..
-rm -rv texinfo-7.1
+rm -rv $pkgname-$pkgver

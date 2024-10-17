@@ -1,8 +1,11 @@
 #!/bin/bash
 
+pkgname=Python
+pkgver=3.12.5
+
 cd /sources
-tar -xvf Python-3.12.5.tar.xz
-cd Python-3.12.5
+tar -xvf $pkgname-$pkgver.tar.xz
+cd $pkgname-$pkgver
 ./configure --prefix=/usr        \
             --enable-shared      \
             --with-system-expat  \
@@ -15,11 +18,11 @@ cat > /etc/pip.conf << EOF
 root-user-action = ignore
 disable-pip-version-check = true
 EOF
-install -v -dm755 /usr/share/doc/python-3.12.5/html
+install -v -dm755 /usr/share/doc/$pkgname-$pkgver/html
 
 tar --no-same-owner \
-    -xvf ../python-3.12.5-docs-html.tar.bz2
-cp -R --no-preserve=mode python-3.12.5-docs-html/* \
-    /usr/share/doc/python-3.12.5/html
+    -xvf ../$pkgname-$pkgver-docs-html.tar.bz2
+cp -R --no-preserve=mode $pkgname-$pkgver-docs-html/* \
+    /usr/share/doc/$pkgname-$pkgver/html
 cd ..
-rm -rv Python-3.12.5
+rm -rv $pkgname-$pkgver

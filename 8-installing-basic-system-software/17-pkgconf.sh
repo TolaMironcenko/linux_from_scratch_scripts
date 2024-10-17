@@ -1,14 +1,17 @@
 #!/bin/bash
 
+pkgname=pkgconf
+pkgver=2.3.0
+
 cd /sources
-tar -xvf pkgconf-2.3.0.tar.xz
-cd pkgconf-2.3.0
+tar -xvf $pkgname-$pkgver.tar.xz
+cd $pkgname-$pkgver
 ./configure --prefix=/usr              \
             --disable-static           \
-            --docdir=/usr/share/doc/pkgconf-2.3.0
+            --docdir=/usr/share/doc/$pkgname-$pkgver
 make $MAKEFLAGS
 make install
 ln -sv pkgconf   /usr/bin/pkg-config
 ln -sv pkgconf.1 /usr/share/man/man1/pkg-config.1
 cd ..
-rm -rv pkgconf-2.3.0
+rm -rv $pkgname-$pkgver

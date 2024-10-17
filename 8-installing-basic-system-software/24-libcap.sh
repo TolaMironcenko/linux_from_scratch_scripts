@@ -1,11 +1,14 @@
 #!/bin/bash
 
+pkgname=libcap
+pkgver=2.70
+
 cd /sources
-tar -xvf libcap-2.70.tar.xz
-cd libcap-2.70
+tar -xvf $pkgname-$pkgver.tar.xz
+cd $pkgname-$pkgver
 sed -i '/install -m.*STA/d' libcap/Makefile
 make prefix=/usr lib=lib $MAKEFLAGS
 # make test
 make prefix=/usr lib=lib install
 cd ..
-rm -rv libcap-2.70
+rm -rv $pkgname-$pkgver

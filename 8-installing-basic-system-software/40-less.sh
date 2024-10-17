@@ -1,11 +1,14 @@
 #!/bin/bash
 
+pkgname=less
+pkgver=661
+
 cd /sources
-tar -xvf less-661.tar.gz
-cd less-661
+tar -xvf $pkgname-$pkgver.tar.gz
+cd $pkgname-$pkgver
 ./configure --prefix=/usr --sysconfdir=/etc
 make $MAKEFLAGS
 # make check
 make install
 cd ..
-rm -rv less-661
+rm -rv $pkgname-$pkgver

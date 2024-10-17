@@ -1,8 +1,11 @@
 #!/bin/bash
 
+pkgname=gcc
+pkgver=14.2.0
+
 cd /sources
-tar -xvf gcc-14.2.0.tar.xz
-cd gcc-14.2.0
+tar -xvf $pkgname-$pkgver.tar.xz
+cd $pkgname-$pkgver
 sed -e '/m64=/s/lib64/lib/' \
         -i.orig gcc/config/i386/t-linux64
 mkdir -v build
@@ -65,4 +68,4 @@ rm -v dummy.c a.out dummy.log
 mkdir -pv /usr/share/gdb/auto-load/usr/lib
 mv -v /usr/lib/*gdb.py /usr/share/gdb/auto-load/usr/lib
 cd ../../
-# rm -rv gcc-14.2.0
+rm -rv $pkgname-$pkgver

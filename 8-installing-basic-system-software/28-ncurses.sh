@@ -1,8 +1,11 @@
 #!/bin/bash
 
+pkgname=ncurses
+pkgver=6.5
+
 cd /sources
-tar -xvf ncurses-6.5.tar.gz
-cd ncurses-6.5
+tar -xvf $pkgname-$pkgver.tar.gz
+cd $pkgname-$pkgver
 ./configure --prefix=/usr           \
             --mandir=/usr/share/man \
             --with-shared           \
@@ -23,7 +26,7 @@ for lib in ncurses form panel menu ; do
     ln -sfv ${lib}w.pc    /usr/lib/pkgconfig/${lib}.pc
 done
 ln -sfv libncursesw.so /usr/lib/libcurses.so
-cp -v -R doc -T /usr/share/doc/ncurses-6.5
+cp -v -R doc -T /usr/share/doc/$pkgname-$pkgver
 if [ "$1" = "lsb" ]; then
     make distclean
     ./configure --prefix=/usr    \
@@ -36,4 +39,4 @@ if [ "$1" = "lsb" ]; then
     cp -av lib/lib*.so.5* /usr/lib
 fi
 cd ..
-rm -rv ncurses-6.5
+rm -rv $pkgname-$pkgver

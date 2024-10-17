@@ -1,11 +1,14 @@
 #!/bin/bash
 
+pkgname=check
+pkgver=0.15.2
+
 cd /sources
-tar -xvf check-0.15.2.tar.gz
-cd check-0.15.2
+tar -xvf $pkgname-$pkgver.tar.gz
+cd $pkgname-$pkgver
 ./configure --prefix=/usr --disable-static
 make $MAKEFLAGS
 # make check
-make docdir=/usr/share/doc/check-0.15.2 install
+make docdir=/usr/share/doc/$pkgname-$pkgver install
 cd ..
-rm -rv check-0.15.2
+rm -rv $pkgname-$pkgver

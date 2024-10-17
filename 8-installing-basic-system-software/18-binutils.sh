@@ -1,8 +1,11 @@
 #!/bin/bash
 
+pkgname=binutils
+pkgver=2.43.1
+
 cd /sources
-tar -xvf binutils-2.43.1.tar.xz 
-cd binutils-2.43.1
+tar -xvf $pkgname-$pkgver.tar.xz 
+cd $pkgname-$pkgver
 mkdir -v build
 cd build
 ../configure --prefix=/usr       \
@@ -22,4 +25,4 @@ make tooldir=/usr $MAKEFLAGS
 make tooldir=/usr install
 rm -fv /usr/lib/lib{bfd,ctf,ctf-nobfd,gprofng,opcodes,sframe}.a
 cd ../../
-rm -rv binutils-2.43.1
+rm -rv $pkgname-$pkgver

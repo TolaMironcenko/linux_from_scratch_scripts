@@ -1,9 +1,12 @@
 #!/bin/bash
 
+pkgname=glibc
+pkgver=2.40
+
 cd /sources
-tar -xvf glibc-2.40.tar.xz
-cd glibc-2.40
-patch -Np1 -i ../glibc-2.40-fhs-1.patch
+tar -xvf $pkgname-$pkgver.tar.xz
+cd $pkgname-$pkgver
+patch -Np1 -i ../$pkgname-$pkgver-fhs-1.patch
 mkdir -v build
 cd       build
 echo "rootsbindir=/usr/sbin" > configparms

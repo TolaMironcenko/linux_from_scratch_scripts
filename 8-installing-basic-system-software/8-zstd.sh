@@ -1,11 +1,14 @@
 #!/bin/bash
 
+pkgname=zstd
+pkgver=1.5.6
+
 cd /sources
-tar -xvf zstd-1.5.6.tar.gz
-cd zstd-1.5.6
+tar -xvf $pkgname-$pkgver.tar.gz
+cd $pkgname-$pkgver
 make prefix=/usr $MAKEFLAGS
 # make check
 make prefix=/usr install
 rm -v /usr/lib/libzstd.a
 cd ..
-rm -rv zstd-1.5.6
+rm -rv $pkgname-$pkgver
