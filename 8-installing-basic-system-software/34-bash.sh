@@ -23,4 +23,4 @@ make $MAKEFLAGS
 make install
 cd ..
 rm -rv $pkgname-$pkgver
-exec /usr/bin/bash --login
+# exec /usr/bin/bash --login
