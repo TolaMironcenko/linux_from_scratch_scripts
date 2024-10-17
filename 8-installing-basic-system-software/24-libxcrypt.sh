@@ -6,8 +6,8 @@ if [ "$1" = "" ]; then
 fi
 
 cd /sources
-tar -xvf #libxcrypt
-cd #libxcrypt
+tar -xvf libxcrypt-4.4.36.tar.xz
+cd libxcrypt-4.4.36
 ./configure --prefix=/usr                \
             --enable-hashes=strong,glibc \
             --enable-obsolete-api=no     \
@@ -27,4 +27,4 @@ if [ "$1" = "lsb" ]; then
     cp -av --remove-destination .libs/libcrypt.so.1* /usr/lib
 fi
 cd ..
-rm -rv #libxcrypt
+rm -rv libxcrypt-4.4.36

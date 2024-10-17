@@ -1,8 +1,8 @@
 #!/bin/bash
 
 cd /sources
-tar -xvf #bzip2
-cd #bzip2
+tar -xvf bzip2-1.0.8.tar.gz
+cd bzip2-1.0.8
 patch -Np1 -i ../bzip2-1.0.8-install_docs-1.patch
 sed -i 's@\(ln -s -f \)$(PREFIX)/bin/@\1@' Makefile
 sed -i "s@(PREFIX)/man@(PREFIX)/share/man@g" Makefile
@@ -18,4 +18,4 @@ for i in /usr/bin/{bzcat,bunzip2}; do
 done
 rm -fv /usr/lib/libbz2.a
 cd ..
-rm -rv #bzip2
+rm -rv bzip2-1.0.8

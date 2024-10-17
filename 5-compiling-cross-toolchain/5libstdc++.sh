@@ -1,8 +1,8 @@
 #!/bin/bash
 
 cd $LFS/sources
-tar -xvf #gcc
-cd #gcc
+tar -xvf gcc-14.2.0.tar.xz
+cd gcc-14.2.0
 mkdir -v build
 cd       build
 ../libstdc++-v3/configure           \
@@ -17,4 +17,4 @@ make $MAKEFLAGS
 make DESTDIR=$LFS install
 rm -v $LFS/usr/lib/lib{stdc++{,exp,fs},supc++}.la
 cd ../../
-rm -rv #gcc
+rm -rv gcc-14.2.0

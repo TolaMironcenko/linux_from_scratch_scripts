@@ -1,8 +1,8 @@
 #!/bin/bash
 
 cd /sources
-tar -xvf #systemd
-cd #systemd
+tar -xvf systemd-256.4.tar.gz
+cd systemd-256.4
 sed -i -e 's/GROUP="render"/GROUP="video"/' \
        -e 's/GROUP="sgx", //' rules.d/50-udev-default.rules.in
 mkdir -p build
@@ -37,4 +37,4 @@ tar -xf ../../systemd-man-pages-256.4.tar.xz \
 systemd-machine-id-setup
 systemctl preset-all
 cd ../../
-rm -rv #systemd
+rm -rv systemd-256.4

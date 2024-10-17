@@ -1,8 +1,8 @@
 #!/bin/bash
 
 cd /sources
-tar -xvf #tcl
-cd #tcl
+tar -xvf tcl8.6.14-src.tar.gz
+cd tcl8.6.14
 SRCDIR=$(pwd)
 cd unix
 ./configure --prefix=/usr           \
@@ -36,4 +36,4 @@ cd ..
 tar -xf ../tcl8.6.14-html.tar.gz --strip-components=1
 mkdir -v -p /usr/share/doc/tcl-8.6.14
 cp -v -r  ./html/* /usr/share/doc/tcl-8.6.14
-rm -rv html #tcl
+rm -rv html tcl8.6.14

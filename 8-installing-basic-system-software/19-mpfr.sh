@@ -1,8 +1,8 @@
 #!/bin/bash
 
 cd /sources
-tar -xvf #mpfr
-cd #mpfr
+tar -xvf mpfr-4.2.1.tar.xz
+cd mpfr-4.2.1
 ./configure --prefix=/usr        \
             --disable-static     \
             --enable-thread-safe \
@@ -13,4 +13,4 @@ make html $MAKEFLAGS
 make install
 make install-html
 cd ..
-rm -rv #mpfr
+rm -rv mpfr-4.2.1

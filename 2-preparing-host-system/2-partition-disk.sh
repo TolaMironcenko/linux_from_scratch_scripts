@@ -1,6 +1,6 @@
 #!/bin/bash
 
-disk="/dev/sdz"
+disk="/dev/nbd0"
 
 # create 4 gpt partitions 1 - efi system - 500M, 2 - bios boot - 1M, 3 - swap - 8G, 4 - linux filesystem - all disk
 

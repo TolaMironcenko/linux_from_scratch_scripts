@@ -1,12 +1,12 @@
 #!/bin/bash
 
 cd /sources
-tar -xvf #python
-cd #python
+tar -xvf Python-3.12.5.tar.xz
+cd Python-3.12.5
 ./configure --prefix=/usr   \
             --enable-shared \
             --without-ensurepip
 make $MAKEFLAGS
 make install
 cd ..
-rm -rv #python
+rm -rv Python-3.12.5

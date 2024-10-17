@@ -1,8 +1,8 @@
 #!/bin/bash
 
 cd /sources
-tar -xvf #dbus
-cd #dbus
+tar -xvf dbus-1.14.10.tar.xz
+cd dbus-1.14.10
 ./configure --prefix=/usr                        \
             --sysconfdir=/etc                    \
             --localstatedir=/var                 \
@@ -18,4 +18,4 @@ make $MAKEFLAGS
 make install
 ln -sfv /etc/machine-id /var/lib/dbus
 cd ..
-rm -rv #dbus
+rm -rv dbus-1.14.10

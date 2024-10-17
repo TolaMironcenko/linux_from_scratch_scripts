@@ -1,8 +1,8 @@
 #!/bin/bash
 
 cd $LFS/sources
-tar -xvf #glibc
-cd #glibc
+tar -xvf glibc-2.40.tar.xz
+cd glibc-2.40
 ln -sfv ../lib/ld-linux-x86-64.so.2 $LFS/lib64
 ln -sfv ../lib/ld-linux-x86-64.so.2 $LFS/lib64/ld-lsb-x86-64.so.3
 patch -Np1 -i ../glibc-2.40-fhs-1.patch
@@ -26,4 +26,4 @@ readelf -l a.out | grep ld-linux
 #[Requesting program interpreter: /lib64/ld-linux-x86-64.so.2]
 rm -v a.out
 cd ../../
-rm -rv #glibc
+rm -rv glibc-2.40

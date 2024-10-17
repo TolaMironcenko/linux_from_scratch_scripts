@@ -1,9 +1,9 @@
 #!/bin/bash
 
 cd /sources
-tar -xvf #flit-core
-cd #flit-core
+tar -xvf flit_core-3.9.0.tar.gz
+cd flit_core-3.9.0
 pip3 wheel -w dist --no-cache-dir --no-build-isolation --no-deps $PWD
 pip3 install --no-index --no-user --find-links dist flit_core
 cd ..
-rm -rv #flit-core
+rm -rv flit_core-3.9.0

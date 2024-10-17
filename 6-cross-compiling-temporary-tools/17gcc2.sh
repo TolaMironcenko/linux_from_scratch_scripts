@@ -1,8 +1,8 @@
 #!/bin/bash
 
 cd $LFS/sources
-tar -xvf #gcc2
-cd #gcc2
+tar -xvf gcc-14.2.0.tar.xz
+cd gcc-14.2.0
 tar -xf ../mpfr-4.2.1.tar.xz
 mv -v mpfr-4.2.1 mpfr
 tar -xf ../gmp-6.3.0.tar.xz
@@ -37,4 +37,4 @@ make $MAKEFLAGS
 make DESTDIR=$LFS install
 ln -sv gcc $LFS/usr/bin/cc
 cd ../../
-rm -rv #gcc2
+rm -rv gcc-14.2.0

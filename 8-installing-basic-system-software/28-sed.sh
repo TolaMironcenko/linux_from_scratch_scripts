@@ -1,8 +1,8 @@
 #!/bin/bash
 
 cd /sources
-tar -xvf #sed
-cd #sed
+tar -xvf sed-4.9.tar.xz
+cd sed-4.9
 ./configure --prefix=/usr
 make $MAKEFLAGS
 make html $MAKEFLAGS
@@ -12,4 +12,4 @@ make install
 install -d -m755           /usr/share/doc/sed-4.9
 install -m644 doc/sed.html /usr/share/doc/sed-4.9
 cd ..
-rm -rv #sed
+rm -rv sed-4.9

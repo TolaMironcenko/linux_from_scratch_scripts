@@ -1,8 +1,8 @@
 #!/bin/bash
 
 cd /sources
-tar -xvf #util-linux
-cd #util-linux
+tar -xvf util-linux-2.40.2.tar.xz
+cd util-linux-2.40.2
 ./configure --bindir=/usr/bin     \
             --libdir=/usr/lib     \
             --runstatedir=/run    \
@@ -25,4 +25,4 @@ make $MAKEFLAGS
 # su tester -c "make -k check"
 make install
 cd ..
-rm -rv #util-linux
+rm -rv util-linux-2.40.2

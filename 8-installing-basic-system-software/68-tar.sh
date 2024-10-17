@@ -1,8 +1,8 @@
 #!/bin/bash
 
 cd /sources
-tar -xvf #tar
-cd #tar
+tar -xvf tar-1.35.tar.xz
+cd tar-1.35
 FORCE_UNSAFE_CONFIGURE=1  \
 ./configure --prefix=/usr
 make $MAKEFLAGS
@@ -10,4 +10,4 @@ make $MAKEFLAGS
 make install
 make -C doc install-html docdir=/usr/share/doc/tar-1.35
 cd ..
-rm -rv #tar
+rm -rv tar-1.35

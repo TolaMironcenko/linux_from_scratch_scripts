@@ -1,8 +1,8 @@
 #!/bin/bash
 
 cd /sources
-tar -xvf #vim
-cd #vim
+tar -xvf vim-9.1.0660.tar.gz
+cd vim-9.1.0660
 echo '#define SYS_VIMRC_FILE "/etc/vimrc"' >> src/feature.h
 ./configure --prefix=/usr
 make $MAKEFLAGS
@@ -33,4 +33,4 @@ endif
 " End /etc/vimrc
 EOF
 cd ..
-rm -rv #vim
+rm -rv vim-9.1.0660

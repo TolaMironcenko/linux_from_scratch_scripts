@@ -1,8 +1,8 @@
 #!/bin/bash
 
 cd /sources
-tar -xvf #gmp
-cd #gmp
+tar -xvf gmp-6.3.0.tar.xz
+cd gmp-6.3.0
 ./configure --prefix=/usr    \
             --enable-cxx     \
             --disable-static \
@@ -14,4 +14,4 @@ make html $MAKEFLAGS
 make install
 make install-html
 cd ..
-rm -rv #gmp
+rm -rv gmp-6.3.0

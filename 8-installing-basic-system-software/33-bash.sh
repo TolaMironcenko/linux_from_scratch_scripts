@@ -1,8 +1,8 @@
 #!/bin/bash
 
 cd /sources
-tar -xvf #bash
-cd #bash
+tar -xvf bash-5.2.32.tar.gz
+cd bash-5.2.32
 ./configure --prefix=/usr             \
             --without-bash-malloc     \
             --with-installed-readline \
@@ -19,5 +19,5 @@ make $MAKEFLAGS
 # EOF
 make install
 cd ..
-rm -rv #bash
+rm -rv bash-5.2.32
 exec /usr/bin/bash --login

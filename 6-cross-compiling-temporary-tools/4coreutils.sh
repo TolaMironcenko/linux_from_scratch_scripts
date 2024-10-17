@@ -1,8 +1,8 @@
 #!/bin/bash
 
 cd $LFS/sources
-tar -xvf #coreutils
-cd #coreutils
+tar -xvf coreutils-9.5.tar.xz
+cd coreutils-9.5
 ./configure --prefix=/usr                     \
             --host=$LFS_TGT                   \
             --build=$(build-aux/config.guess) \
@@ -15,4 +15,4 @@ mkdir -pv $LFS/usr/share/man/man8
 mv -v $LFS/usr/share/man/man1/chroot.1 $LFS/usr/share/man/man8/chroot.8
 sed -i 's/"1"/"8"/'                    $LFS/usr/share/man/man8/chroot.8
 cd ..
-rm -rv #coreutils
+rm -rv coreutils-9.5

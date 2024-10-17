@@ -1,8 +1,8 @@
 #!/bin/bash
 
 cd /sources
-tar -xvf #python
-cd #python
+tar -xvf Python-3.12.5.tar.xz
+cd Python-3.12.5
 ./configure --prefix=/usr        \
             --enable-shared      \
             --with-system-expat  \
@@ -22,4 +22,4 @@ tar --no-same-owner \
 cp -R --no-preserve=mode python-3.12.5-docs-html/* \
     /usr/share/doc/python-3.12.5/html
 cd ..
-rm -rv #python 
+rm -rv Python-3.12.5

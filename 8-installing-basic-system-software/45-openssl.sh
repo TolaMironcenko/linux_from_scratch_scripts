@@ -1,8 +1,8 @@
 #!/bin/bash
 
 cd /sources
-tar -xvf #openssl
-cd #openssl
+tar -xvf openssl-3.3.1.tar.gz
+cd openssl-3.3.1
 ./config --prefix=/usr         \
          --openssldir=/etc/ssl \
          --libdir=lib          \
@@ -15,4 +15,4 @@ make MANSUFFIX=ssl install
 mv -v /usr/share/doc/openssl /usr/share/doc/openssl-3.3.1
 cp -vfr doc/* /usr/share/doc/openssl-3.3.1
 cd ..
-rm -rv #openssl
+rm -rv openssl-3.3.1

@@ -1,8 +1,8 @@
 #!/bin/bash
 
 cd /sources
-tar -xvf #attr
-cd #attr
+tar -xvf attr-2.5.2.tar.gz
+cd attr-2.5.2
 ./configure --prefix=/usr     \
             --disable-static  \
             --sysconfdir=/etc \
@@ -11,4 +11,4 @@ make $MAKEFLAGS
 # make check
 make install
 cd ..
-rm -rv #attr
+rm -rv attr-2.5.2

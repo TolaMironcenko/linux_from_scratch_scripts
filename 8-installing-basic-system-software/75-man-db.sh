@@ -1,8 +1,8 @@
 #!/bin/bash
 
 cd /sources
-tar -xvf #man-db
-cd #man-db
+tar -xvf man-db-2.12.1.tar.xz
+cd man-db-2.12.1
 ./configure --prefix=/usr                         \
             --docdir=/usr/share/doc/man-db-2.12.1 \
             --sysconfdir=/etc                     \
@@ -15,4 +15,4 @@ make $MAKEFLAGS
 # make check
 make install
 cd ..
-rm -rv #man-db
+rm -rv man-db-2.12.1

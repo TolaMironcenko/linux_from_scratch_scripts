@@ -1,8 +1,8 @@
 #!/bin/bash
 
 cd $LFS/sources
-tar -xvf #gawk
-cd #gawk
+tar -xvf gawk-5.3.0.tar.xz
+cd gawk-5.3.0
 sed -i 's/extras//' Makefile.in
 ./configure --prefix=/usr   \
             --host=$LFS_TGT \
@@ -10,4 +10,4 @@ sed -i 's/extras//' Makefile.in
 make $MAKEFLAGS
 make DESTDIR=$LFS install
 cd ..
-rm -rv #gawk
+rm -rv gawk-5.3.0

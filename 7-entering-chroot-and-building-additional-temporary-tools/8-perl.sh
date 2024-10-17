@@ -1,8 +1,8 @@
 #!/bin/bash
 
 cd /sources
-tar -xvf #perl
-cd #perl
+tar -xvf perl-5.40.0.tar.xz
+cd perl-5.40.0
 sh Configure -des                                         \
              -D prefix=/usr                               \
              -D vendorprefix=/usr                         \
@@ -16,4 +16,4 @@ sh Configure -des                                         \
 make $MAKEFLAGS
 make install
 cd ..
-rm -rv #perl
+rm -rv perl-5.40.0

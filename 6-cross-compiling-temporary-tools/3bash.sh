@@ -1,8 +1,8 @@
 #!/bin/bash
 
 cd $LFS/sources
-tar -xvf #bash
-cd #bash
+tar -xvf bash-5.2.32.tar.gz
+cd bash-5.2.32
 ./configure --prefix=/usr                      \
             --build=$(sh support/config.guess) \
             --host=$LFS_TGT                    \
@@ -12,4 +12,4 @@ make $MAKEFLAGS
 make DESTDIR=$LFS install
 ln -sv bash $LFS/bin/sh
 cd ..
-rm -rv #bash
+rm -rv bash-5.2.32

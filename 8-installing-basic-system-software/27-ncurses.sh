@@ -1,8 +1,8 @@
 #!/bin/bash
 
 cd /sources
-tar -xvf #ncurses
-cd #ncurses
+tar -xvf ncurses-6.5.tar.gz
+cd ncurses-6.5
 ./configure --prefix=/usr           \
             --mandir=/usr/share/man \
             --with-shared           \
@@ -36,4 +36,4 @@ if [ "$1" = "lsb" ]; then
     cp -av lib/lib*.so.5* /usr/lib
 fi
 cd ..
-rm -rv #ncurses
+rm -rv ncurses-6.5

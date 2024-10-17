@@ -1,8 +1,8 @@
 #!/bin/bash
 
 cd $LFS/sources
-tar -xvf #ncurses
-cd #ncurses
+tar -xvf ncurses-6.5.tar.gz
+cd ncurses-6.5
 sed -i s/mawk// configure
 mkdir build
 pushd build
@@ -27,4 +27,4 @@ ln -sv libncursesw.so $LFS/usr/lib/libncurses.so
 sed -e 's/^#if.*XOPEN.*$/#if 1/' \
     -i $LFS/usr/include/curses.h
 cd ..
-rm -rv #ncurses
+rm -rv ncurses-6.5

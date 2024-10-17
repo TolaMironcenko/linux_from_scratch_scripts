@@ -1,11 +1,11 @@
 #!/bin/bash
 
 cd /sources
-tar -xvf #groff
-cd #groff
+tar -xvf groff-1.23.0.tar.gz
+cd groff-1.23.0
 PAGE=A4 ./configure --prefix=/usr
 make $MAKEFLAGS
 # make check
 make install
 cd ..
-rm -rv #groff
+rm -rv groff-1.23.0

@@ -1,8 +1,8 @@
 #!/bin/bash
 
 cd $LFS/sources
-tar -xvf #gcc
-cd #gcc
+tar -xvf gcc-14.2.0.tar.xz
+cd gcc-14.2.0
 tar -xf ../mpfr-4.2.1.tar.xz
 mv -v mpfr-4.2.1 mpfr
 tar -xf ../gmp-6.3.0.tar.xz
@@ -39,4 +39,4 @@ cd ..
 cat gcc/limitx.h gcc/glimits.h gcc/limity.h > \
   `dirname $($LFS_TGT-gcc -print-libgcc-file-name)`/include/limits.h
 cd ..
-rm -rv #gcc
+rm -rv gcc-14.2.0

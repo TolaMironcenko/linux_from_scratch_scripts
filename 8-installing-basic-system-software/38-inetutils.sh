@@ -1,8 +1,8 @@
 #1/bin/bash
 
 cd /sources
-tar -xvf #inteutils
-cd #intetutils
+tar -xvf inetutils-2.5.tar.xz
+cd inetutils-2.5
 sed -i 's/def HAVE_TERMCAP_TGETENT/ 1/' telnet/telnet.c
 ./configure --prefix=/usr        \
             --bindir=/usr/bin    \
@@ -19,4 +19,4 @@ make $MAKEFLAGS
 make install
 mv -v /usr/{,s}bin/ifconfig
 cd ..
-rm -rv #inetutils
+rm -rv inetutils-2.5

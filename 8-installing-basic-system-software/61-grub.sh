@@ -1,8 +1,8 @@
 #!/bin/bash
 
 cd /sources
-tar -xvf #grub
-cd #grub
+tar -xvf grub-2.12.tar.xz
+cd grub-2.12
 unset {C,CPP,CXX,LD}FLAGS
 echo depends bli part_gpt > grub-core/extra_deps.lst
 ./configure --prefix=/usr          \
@@ -13,4 +13,4 @@ make $MAKEFLAGS
 make install
 mv -v /etc/bash_completion.d/grub /usr/share/bash-completion/completions
 cd ..
-rm -rv #grub
+rm -rv grub-2.12

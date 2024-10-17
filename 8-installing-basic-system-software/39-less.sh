@@ -1,11 +1,11 @@
 #!/bin/bash
 
 cd /sources
-tar -xvf #less
-cd #less
+tar -xvf less-661.tar.gz
+cd less-661
 ./configure --prefix=/usr --sysconfdir=/etc
 make $MAKEFLAGS
 # make check
 make install
 cd ..
-rm -rv #less
+rm -rv less-661

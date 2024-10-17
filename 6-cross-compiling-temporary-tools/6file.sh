@@ -1,8 +1,8 @@
 #!/bin/bash
 
 cd $LFS/sources
-tar -xvf #file
-cd #file
+tar -xvf file-5.45.tar.gz
+cd file-5.45
 mkdir build
 pushd build
   ../configure --disable-bzlib      \
@@ -16,4 +16,4 @@ make FILE_COMPILE=$(pwd)/build/src/file $MAKEFLAGS
 make DESTDIR=$LFS install
 rm -v $LFS/usr/lib/libmagic.la
 cd ..
-rm -rv #file
+rm -rv file-5.45
