@@ -1,14 +1,14 @@
 #!/bin/bash
 
 ln -s /dev/null /etc/systemd/network/99-default.link
-cat > /etc/systemd/network/10-ether0.link << "EOF"
-[Match]
-# Change the MAC address as appropriate for your network device
-MACAddress=12:34:45:78:90:AB
+# cat > /etc/systemd/network/10-ether0.link << "EOF"
+# [Match]
+# # Change the MAC address as appropriate for your network device
+# MACAddress=12:34:45:78:90:AB
 
-[Link]
-Name=ether0
-EOF
+# [Link]
+# Name=ether0
+# EOF
 
 if [ "$1" = "static" ]; then
 cat > /etc/systemd/network/10-eth-static.network << "EOF"
@@ -25,7 +25,7 @@ fi
 if [ "$1" = "dhcp" ]; then
 cat > /etc/systemd/network/10-eth-dhcp.network << "EOF"
 [Match]
-Name=<network-device-name>
+Name=eth0
 
 [Network]
 DHCP=ipv4
@@ -35,15 +35,15 @@ UseDomains=true
 EOF
 fi
 
-cat > /etc/resolv.conf << "EOF"
-# Begin /etc/resolv.conf
+# cat > /etc/resolv.conf << "EOF"
+# # Begin /etc/resolv.conf
 
-# domain <Your Domain Name>
-# nameserver <IP address of your primary nameserver>
-# nameserver <IP address of your secondary nameserver>
+# # domain <Your Domain Name>
+# # nameserver <IP address of your primary nameserver>
+# # nameserver <IP address of your secondary nameserver>
 
-# End /etc/resolv.conf
-EOF
+# # End /etc/resolv.conf
+# EOF
 
 echo "lfs" > /etc/hostname
 cat > /etc/hosts << "EOF"
@@ -51,7 +51,7 @@ cat > /etc/hosts << "EOF"
 
 127.0.0.1 localhost
 ::1 localhost
-172.0.1.1 lfs.localdomain lfs
+127.0.1.1 lfs.localdomain lfs
 
 # End /etc/hosts
 EOF
