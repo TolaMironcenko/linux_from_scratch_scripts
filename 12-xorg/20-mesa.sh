@@ -25,11 +25,10 @@ meson setup .. \
     --prefix=$XORG_PREFIX \
     --buildtype=release \
     -D platforms=x11 \
-    -D gallium-drivers='' \
+    -D gallium-drivers='svga' \
     -D vulkan-drivers='' \
     -D valgrind=disabled \
     -D libunwind=disabled \
-    -D glx=disabled
 
 ninja
 sudo ninja install
